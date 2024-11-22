@@ -1,6 +1,12 @@
 import mongoose, { Schema } from "mongoose";
 
 const PostSchema = new Schema({
+  recipient: {
+    type: String,
+  },
+  id_track: {
+    type: String,
+  },
   description: {
     type: String,
   },

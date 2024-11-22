@@ -9,10 +9,9 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
-  const { description } = await req.json();
-
+  const { recipient, id_track, description } = await req.json();
   await connectMongoDB();
-  await Post.create({ description });
+  await Post.create({ recipient, id_track, description });
 
   return NextResponse.json({ message: "success", status: 200 });
 }

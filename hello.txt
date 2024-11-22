@@ -1,0 +1,11 @@
+curl -X POST "https://accounts.spotify.com/api/token" \
+     -H "Content-Type: application/x-www-form-urlencoded" \
+     -d "grant_type=client_credentials&client_id=b7291f4b02964abaa09d1e16ab9b3868&client_secret=c94c352eed844d1e98912fba2183bf9f"
+
+BQCrz9xBqRvatEvZNxhRs7yTG9T0MtwZBWqSNHreYST9o0N-aAEPxVSuzc0P-1G0WMUJaFhqo_t5oMP6Du6QkxSGWl4Y7lFwfKaJ--G7OcF9WzGoXNo
+
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/5kVZa4lFUmAQlBogl1fkd6?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+curl "https://api.spotify.com/v1/artists/5kVZa4lFUmAQlBogl1fkd6" \
+     -H "Authorization: Bearer BQCrz9xBqRvatEvZNxhRs7yTG9T0MtwZBWqSNHreYST9o0N-aAEPxVSuzc0P-1G0WMUJaFhqo_t5oMP6Du6QkxSGWl4Y7lFwfKaJ--G7OcF9WzGoXNo"
+
