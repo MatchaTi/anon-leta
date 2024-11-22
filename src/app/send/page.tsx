@@ -1,8 +1,7 @@
 "use client";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { Fragment, useState } from "react";
-import Image from "next/image";
+import { useState } from "react";
 
 function Send() {
   const [description, setDescription] = useState("");
@@ -14,7 +13,6 @@ function Send() {
 
   async function searchSong() {
     const data = await axios.get(`http://localhost:3000/api/search-song?search=${search}`)
-    console.log(data.data);
     setTracks(data.data);
   }
 
@@ -29,7 +27,6 @@ function Send() {
         id_track,
         description,
       });
-      console.log(res.data);
 
       if (res.data.status === 200) router.push("/");
     } catch (error) {
