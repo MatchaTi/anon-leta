@@ -8,7 +8,7 @@ function Send() {
   const [search, setSearch] = useState("");
   const [tracks, setTracks] = useState([]);
   const [recipient, setRecipient] = useState("");
-  const [id_track, setId_track] = useState("");
+  const [postTrack, setPostTrack] = useState({});
   const router = useRouter();
 
   async function searchSong() {
@@ -24,7 +24,7 @@ function Send() {
     try {
       const res = await axios.post("http://localhost:3000/api/send-song", {
         recipient,
-        id_track,
+        id_track: postTrack.id,
         description,
       });
 
@@ -66,27 +66,30 @@ function Send() {
             onChange={(e) => setSearch(e.target.value)}
             className="py-4 px-8 rounded-lg bg-stone-100 border-stone-900 border-[3px]"
           />
-          <button type="button" onClick={searchSong} className="py-4 px-8 border-stone-900 border-[3px] rounded-lg">Cari Lagu</button>
+          <button type="button" onClick={searchSong} className="py-4 px-8 border-stone-900 border-[3px] rounded-lg hover:bg-stone-900 hover:text-stone-100">Cari Lagu</button>
         </div>
         {tracks.length > 0 && (
           <>
-            <h2>Tracks</h2>
-            <select
-              className="placeholder:text-black text-blue-500"
-              onChange={(e) => {
-                const selectedId = e.target.value;
-                if (selectedId) {
-                  setId_track(selectedId);
-                }
-              }}
-            >
-              <option value="">Pilih Track</option>
-              {tracks.map((track) => (
-                <option key={track.id} value={track.id} className="text-black">
-                  {track.name}
-                </option>
-              ))}
-            </select>
+            <div className="">
+              <div className="flex items-center gap-6">
+                <h2>Judul Terpilih:</h2>
+                <button type="button">
+                  {postTrack ? postTrack.name : "Pilih Track"}
+                </button>
+              </div>
+              <ul className="mb-6 bg-white border mt-2 rounded shadow-lg max-h-60 overflow-y-auto w-full">
+                {tracks.map((track) => (
+                  <li
+                    key={track.id}
+                    className="flex items-center p-2 hover:bg-gray-200 cursor-pointer"
+                    onClick={() => setPostTrack(track)}
+                  >
+                    <img src={track.album.images[0].url} alt={track.name} width={40} height={40} className="mr-2 rounded" />
+                    <span>{track.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </>
         )}
         <button type='submit' className="w-full py-4 px-8 bg-stone-900 text-stone-100 rounded-lg">Kirim Ungkapan</button>
