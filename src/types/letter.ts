@@ -4,6 +4,5 @@ export interface ILetter {
   description: string;
   id_track: string;
   createdAt: string;
-  bgColor?: string;
 }
 

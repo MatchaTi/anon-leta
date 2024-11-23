@@ -1,5 +1,4 @@
 import connectMongoDB from "@/lib/mongodb";
-import randomColor from "@/lib/randomColor";
 import Letters from "@/models/LetterModel";
 import { NextResponse } from "next/server";
 
@@ -11,10 +10,9 @@ export async function GET() {
 
 export async function POST(req: Request) {
   const { recipient, id_track, description } = await req.json();
-  const bgColor = randomColor();
   const createdAt = new Date();
   await connectMongoDB();
-  await Letters.create({ recipient, id_track, description, createdAt, bgColor });
+  await Letters.create({ recipient, id_track, description, createdAt });
 
   return NextResponse.json({ message: "success", status: 200 });
 }

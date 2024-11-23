@@ -1,5 +1,9 @@
 import Link from 'next/link';
 
+function cn(...cns: Array<string>) {
+  return cns.join(' ');
+}
+
 interface LetterDetailProps {
   recipient: string;
   description: string;
@@ -7,12 +11,33 @@ interface LetterDetailProps {
   bgColor?: string;
 }
 
+const randomColors = [
+  "bg-red-200",
+  "bg-yellow-200",
+  "bg-green-200",
+  "bg-blue-200",
+  "bg-purple-200",
+  "bg-pink-200",
+  "bg-orange-200",
+  "bg-cyan-200",
+  "bg-lime-200",
+  "bg-emerald-200",
+  "bg-sky-200",
+  "bg-violet-200",
+]
+
+const letterDetailStyles = () => {
+  const randomColor = randomColors[Math.floor(Math.random() * randomColors.length)];
+
+  return cn(randomColor);
+}
+
 export default function LetterDetail({ recipient, description, id_track, bgColor = "bg-red-200" }: LetterDetailProps) {
   return (
     <section className="mt-24 mx-auto max-w-[814px] p-6">
       <h1 className="mb-12 text-4xl font-bold md:text-8xl">Hai, {recipient}</h1>
       <p className="mb-6 text-2xl">Ada seseorang yang mengirim untukmu sebuah pesan dan lagu, mereka ingin kamu untuk membaca dan mendengar lagunya yang mungkin relate :)</p>
-      <div className={`mb-6 p-8 shadow-xl ${bgColor}`}>
+      <div className={`mb-6 p-8 shadow-xl ${letterDetailStyles()}`}>
         <p className="mb-4 text-3xl md:text-5xl">{description}</p>
         <iframe
           src={`https://open.spotify.com/embed/track/${id_track}?utm_source=generator`}

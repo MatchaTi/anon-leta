@@ -10,9 +10,6 @@ const LetterSchema = new Schema({
   description: {
     type: String,
   },
-  bgColor: {
-    type: String,
-  },
   createdAt: {
     type: Date,
     default: Date.now,
