@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Gaegu } from 'next/font/google';
+import Navbar from "@/components/navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,6 +32,7 @@ export default function RootLayout({
       <body
         className={`mx-auto ${gaegu.className} ${gaegu.className} antialiased bg-stone-100 text-stone-900 text-xl bg-dot max-w-[2000px]`}
       >
+        <Navbar />
         {children}
       </body>
     </html>

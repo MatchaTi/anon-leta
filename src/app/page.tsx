@@ -14,7 +14,6 @@ export default async function Home() {
   console.log(posts);
   return (
     <div className='overflow-hidden'>
-      <Navbar />
       <Hero />
       <Link href='/send'>Send</Link>
 
