@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Gaegu } from 'next/font/google';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -12,6 +13,8 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+
+const gaegu = Gaegu({ subsets: ['latin'], weight: '400' });
 
 export const metadata: Metadata = {
   title: "Home | Anon Leta",
@@ -26,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`mx-auto ${gaegu.className} ${gaegu.className} antialiased bg-stone-100 text-stone-900 text-xl bg-dot max-w-[2000px]`}
       >
         {children}
       </body>
