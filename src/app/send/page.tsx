@@ -35,7 +35,7 @@ function Send() {
   }
 
   return (
-    <section className="mt-24 mx-auto max-w-[814px] p-6 md:px-24">
+    <section className="mt-24 mx-auto max-w-[814px] p-6">
       <h1 className="mb-12 text-4xl font-bold md:text-8xl">Ungkapkan</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-6 flex flex-col gap-2">
