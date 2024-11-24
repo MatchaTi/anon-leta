@@ -9,6 +9,7 @@ async function getLetters() {
     const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/send-song`);
     return response.data.letters || [];
   } catch (error) {
+    console.error(error);
     return [];
   }
 }
