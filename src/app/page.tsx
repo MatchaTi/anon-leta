@@ -1,7 +1,7 @@
 import Hero from "@/components/hero";
+import PostCard from "@/components/postCard";
 import { ILetter } from "@/types/letter";
 import axios from "axios";
-import Link from "next/link";
 
 async function getLetters() {
   const response = await axios.get("http://localhost:3000/api/send-song");
@@ -11,37 +11,30 @@ async function getLetters() {
 
 export default async function Home() {
   const letters: ILetter[] = await getLetters();
+  console.log(letters);
 
   return (
     <div className='overflow-hidden'>
       <Hero />
-      <Link href='/send'>Send</Link>
 
-      {letters?.length > 0 ? (
-        letters.map(({ _id, recipient, id_track, description }) => (
-          <div key={_id} className="mb-12">
-            <h2 className="mb-4 text-3xl md:text-5xl">{description}</h2>
-            <p className="mb-4 text-xl text-stone-700">{recipient}</p>
-            <iframe
+      <section className="grid p-6 gap-8 place-items-center sm:grid-cols-2 lg:px-24 lg:grid-cols-4 lg:mt-40 ">
+        {letters?.length > 0 ? (
+          letters.map(({ _id, recipient, id_track, description }) => (
+            <PostCard
               key={_id}
-              src={`https://open.spotify.com/embed/track/${id_track}?utm_source=generator`}
-              width="100%"
-              height="352"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy">
-            </iframe>
-            <Link href={`/letter/${_id}`} className="py-4 px-8 bg-stone-900 text-stone-100 rounded-xl">
-              Lihat Pesan
-            </Link>
-            <Link href='/send' className="py-4 px-8 bg-stone-100 border-stone-900 border-[3px] rounded-xl">
-              Ungkapkan Rasa
-            </Link>
-          </div>
-        ))
-      ) : (
-        <p>Tidak ada surat tersedia.</p>
-      )}
+              description={description}
+              recipient={recipient}
+              image="gambar"
+              titleSong="Algernon"
+              artist="Yorushika"
+              link={_id}
+            />
+          ))
+        ) : (
+          <p>Tidak ada surat tersedia.</p>
+        )}
 
+      </section>
     </div>
   );
 }

@@ -1,5 +1,5 @@
+import LetterDetail from "@/components/letterDetail";
 import axios from "axios";
-import LetterDetail from "./letterDetail";
 
 async function getLetter(id: string) {
   try {
