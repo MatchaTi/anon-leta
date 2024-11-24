@@ -12,7 +12,7 @@ function Send() {
   const router = useRouter();
 
   async function searchSong() {
-    const data = await axios.get(`http://localhost:3000/api/search-song?search=${search}`)
+    const data = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/search-song?search=${search}`)
     setTracks(data.data);
   }
 
@@ -22,7 +22,7 @@ function Send() {
     if (!description) return alert("Please enter a description");
 
     try {
-      const res = await axios.post("http://localhost:3000/api/send-song", {
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/send-song`, {
         recipient,
         id_track: postTrack.id,
         description,

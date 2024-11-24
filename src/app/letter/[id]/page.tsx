@@ -3,7 +3,7 @@ import axios from "axios";
 
 async function getLetter(id: string) {
   try {
-    const response = await axios.get(`http://localhost:3000/api/letter?id=${id}`);
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/letter?id=${id}`);
     return response.data;
   } catch (error: any) {
     if (error.response) {
