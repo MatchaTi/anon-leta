@@ -16,11 +16,21 @@ async function getLetter(id: string) {
   }
 }
 
-export default async function Letter({ params }: { params: { id: string } }) {
-  const { id } = await params;
+interface LetterPageProps {
+  params: { id: string };
+}
+
+export default async function Letter({ params }: LetterPageProps) {
+  const { id } = params;
   const letter = await getLetter(id);
 
-  if (letter.status > 400) return <h1 className="mt-24 mx-auto max-w-[814px] p-6 text-4xl font-bold text-center md:text-8xl">Letter not found</h1>;
+  if (letter.status > 400) {
+    return (
+      <h1 className="mt-24 mx-auto max-w-[814px] p-6 text-4xl font-bold text-center md:text-8xl">
+        Letter tidak ditemukan :(
+      </h1>
+    );
+  }
 
   return (
     <LetterDetail
