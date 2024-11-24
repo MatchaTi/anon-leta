@@ -4,7 +4,6 @@ import PostCard from './postCard'
 export default function Hero() {
   return (
     <section className="relative h-screen flex flex-col justify-center">
-      <p className="text-8xl">"</p>
       <h1 className="-mt-12 mb-6 text-4xl font-bold md:text-8xl md:max-w-[1070px]">Ungkapkan rasa tanpa nama, biarkan hati yang berbicara.</h1>
       <div className="flex items-center gap-6">
         <Link href='/send' className="py-4 px-8 bg-stone-900 text-stone-100 rounded-xl">
