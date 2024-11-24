@@ -3,12 +3,28 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+type IPostTrack = {
+  id: string;
+  name: string;
+  album: {
+    images: Array<{
+      url: string;
+    }>;
+  };
+}
+
 function Send() {
   const [description, setDescription] = useState("");
   const [search, setSearch] = useState("");
-  const [tracks, setTracks] = useState([]);
+  const [tracks, setTracks] = useState<Array<IPostTrack>>([]);
   const [recipient, setRecipient] = useState("");
-  const [postTrack, setPostTrack] = useState({});
+  const [postTrack, setPostTrack] = useState<IPostTrack>({
+    id: "",
+    name: "",
+    album: {
+      images: [],
+    },
+  });
   const router = useRouter();
 
   async function searchSong() {
