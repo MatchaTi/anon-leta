@@ -1,15 +1,11 @@
-
 import Link from 'next/link';
-
-function cn(...cns: Array<string>) {
-  return cns.join(' ');
-}
+import { cn, formatDate } from '@/lib/utils';
 
 interface LetterDetailProps {
   recipient: string;
   description: string;
   id_track: string;
-  bgColor?: string;
+  createdAt: string;
 }
 
 const randomColors = [
@@ -30,10 +26,10 @@ const randomColors = [
 const letterDetailStyles = () => {
   const randomColor = randomColors[Math.floor(Math.random() * randomColors.length)];
 
-  return cn(randomColor);
+  return cn(randomColor)
 }
 
-export default function LetterDetail({ recipient, description, id_track, bgColor = "bg-red-200" }: LetterDetailProps) {
+export default function LetterDetail({ recipient, description, id_track, createdAt }: LetterDetailProps) {
   return (
     <section className="mt-24 mx-auto max-w-[814px] p-6">
       <h1 className="mb-12 text-4xl font-bold md:text-8xl">Hai, {recipient}</h1>
@@ -48,7 +44,7 @@ export default function LetterDetail({ recipient, description, id_track, bgColor
           loading="lazy">
         </iframe>
       </div>
-      <p className="mb-20 text-xl text-stone-700">Pesan dikirim pada 23 November 2024</p>
+      <p className="mb-20 text-xl text-stone-700">Pesan dikirim pada {formatDate(createdAt)}</p>
       <div className="flex flex-col justify-center items-center gap-2">
         <p>Ungkapkan rasa tanpa nama, biarkan hati yang berbicara.</p>
         <Link href='/send' className="py-4 px-8 bg-stone-900 text-stone-100 rounded-xl">

@@ -24,7 +24,7 @@ export default async function Letter({ params }: { params: { id: string } }) {
       recipient={letter.recipient}
       description={letter.description}
       id_track={letter.id_track}
-      bgColor={letter.bgColor}
+      createdAt={letter.createdAt}
     />
   );
 }
