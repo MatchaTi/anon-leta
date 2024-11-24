@@ -16,14 +16,12 @@ async function getLetter(id: string) {
   }
 }
 
-interface LetterPageProps {
-  params: {
-    id: string;
-  };
-}
+type LetterPageProps = Promise<{
+  id: string;
+}>
 
-export default async function Letter({ params }: LetterPageProps) {
-  const { id } = params;
+export default async function Letter(props: { params: LetterPageProps }) {
+  const { id } = await props.params;
   const letter = await getLetter(id);
 
   if (letter.status > 400) {
