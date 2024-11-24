@@ -6,14 +6,12 @@ import axios from "axios";
 
 async function getLetters() {
   const response = await axios.get("http://localhost:3000/api/send-song");
-  console.log(response.data);
   return response.data.letters || [];
 }
 
 export default async function Home() {
   const letters: ILetter[] = await getLetters();
   const allLetters = await getAllLetters(letters);
-  console.log(allLetters)
 
   return (
     <div className='overflow-hidden p-6 lg:px-24'>
