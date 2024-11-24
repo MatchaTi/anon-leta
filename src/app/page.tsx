@@ -6,8 +6,7 @@ import axios from "axios";
 
 async function getLetters() {
   try {
-    //const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/send-song`);
-    const response = await axios.get("https://anon-leta.vercel.app/api/send-song");
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/send-song`);
     return response.data.letters || [];
   } catch (error) {
     console.error(error);
