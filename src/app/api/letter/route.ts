@@ -4,6 +4,8 @@ import { ObjectId } from "mongodb";
 import { NextRequest } from "next/server";
 
 export async function GET(req: NextRequest) {
+  const header = new Headers();
+  header.set("Access-Control-Allow-Origin", "*");
   try {
     const id = req.nextUrl.searchParams.get("id");
     if (!id) {
