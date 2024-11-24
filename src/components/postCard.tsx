@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 function cn(...cns: Array<string>) {
@@ -41,13 +42,15 @@ export default function PostCard({ description, recipient, image, titleSong, art
         <Link href={`${link ? '/letter/' + link : '/'}`} className="mb-4 w-full text-3xl leading-relaxed text-balance md:text-5xl">{description}</Link>
         <p className="mb-4">Untuk {recipient}</p>
       </div>
-      <div className="p-4 flex gap-6 items-center bg-stone-100 rounded-lg">
-        <div className="h-16 aspect-square overflow-hidden rounded-lg bg-stone-50">gambar</div>
+      <Link href={`${link ? '/letter/' + link : '/'}`} className="p-4 flex gap-6 items-center bg-stone-100 rounded-lg">
+        <div className="h-16 min-w-16 max-w-16 overflow-hidden rounded-lg bg-stone-50">
+          <img src={image ? image : ""} alt="gambar" className="w-full h-full object-cover" />
+        </div>
         <div>
           <h3 className="font-bold md:text-2xl">{titleSong}</h3>
           <p>{artist}</p>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }

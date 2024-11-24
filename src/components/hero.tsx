@@ -3,7 +3,7 @@ import PostCard from './postCard'
 
 export default function Hero() {
   return (
-    <section className="relative p-6 h-screen flex flex-col justify-center lg:px-24">
+    <section className="relative h-screen flex flex-col justify-center">
       <p className="text-8xl">"</p>
       <h1 className="-mt-12 mb-6 text-4xl font-bold md:text-8xl md:max-w-[1070px]">Ungkapkan rasa tanpa nama, biarkan hati yang berbicara.</h1>
       <div className="flex items-center gap-6">
