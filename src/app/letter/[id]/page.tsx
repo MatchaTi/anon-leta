@@ -1,13 +1,16 @@
 import LetterDetail from "@/components/letterDetail";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 async function getLetter(id: string) {
   try {
     const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/letter?id=${id}`);
     return response.data;
-  } catch (error: any) {
-    if (error.response) {
-      return { status: error.response.status, message: error.response.data.error || "Unknown error" };
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      return {
+        status: error.response?.status,
+        message: error.response?.data?.error || "Unknown error"
+      };
     }
     return { status: 500, message: "Internal error occurred" };
   }

@@ -1,8 +1,9 @@
 import connectMongoDB from "@/lib/mongodb";
 import Letter from "@/models/LetterModel";
 import { ObjectId } from "mongodb";
+import { NextRequest } from "next/server";
 
-export async function GET(req: any) {
+export async function GET(req: NextRequest) {
   try {
     const id = req.nextUrl.searchParams.get("id");
     if (!id) {

@@ -1,7 +1,8 @@
 import getSpotifyAccessToken from "@/lib/spotify";
 import axios from "axios";
+import { NextRequest } from "next/server";
 
-export async function GET(req: any) {
+export async function GET(req: NextRequest) {
   const search = await req.nextUrl.searchParams.get("search");
 
   const accessToken = await getSpotifyAccessToken();
