@@ -28,7 +28,7 @@ function Send() {
   const router = useRouter();
 
   async function searchSong() {
-    const data = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/search-song?search=${search}`)
+    const data = await axios.get(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/search-song?search=${search}`)
     setTracks(data.data);
   }
 
