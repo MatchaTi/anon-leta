@@ -17,7 +17,9 @@ async function getLetter(id: string) {
 }
 
 interface LetterPageProps {
-  params: { id: string };
+  params: {
+    id: string;
+  };
 }
 
 export default async function Letter({ params }: LetterPageProps) {
@@ -27,7 +29,7 @@ export default async function Letter({ params }: LetterPageProps) {
   if (letter.status > 400) {
     return (
       <h1 className="mt-24 mx-auto max-w-[814px] p-6 text-4xl font-bold text-center md:text-8xl">
-        Letter tidak ditemukan :(
+        Letter not found
       </h1>
     );
   }
