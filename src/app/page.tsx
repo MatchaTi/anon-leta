@@ -5,8 +5,12 @@ import { ILetter } from "@/types/letter";
 import axios from "axios";
 
 async function getLetters() {
-  const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/send-song`);
-  return response.data.letters || [];
+  try {
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/send-song`);
+    return response.data.letters || [];
+  } catch (error) {
+    return [];
+  }
 }
 
 export default async function Home() {
