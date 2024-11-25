@@ -3,6 +3,9 @@ import PostCard from "@/components/postCard";
 import { ILetter } from "@/types/letter";
 import axios from "axios";
 
+export const revalidate = 10;
+export const dynamic = "force-dynamic";
+
 async function getLetters() {
   try {
     const response = await axios.get(
