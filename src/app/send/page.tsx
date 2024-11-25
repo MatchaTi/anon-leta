@@ -1,4 +1,5 @@
 "use client";
+
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -15,6 +16,7 @@ type IPostTrack = {
 
 function Send() {
   const [description, setDescription] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [tracks, setTracks] = useState<Array<IPostTrack>>([]);
   const [recipient, setRecipient] = useState("");
@@ -28,10 +30,12 @@ function Send() {
   const router = useRouter();
 
   async function searchSong() {
+    setIsLoading(true);
     const data = await axios.get(
       `${process.env.NEXT_PUBLIC_BASE_API_URL}/api/search-song?search=${search}`
     );
     setTracks(data.data);
+    setIsLoading(false);
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -40,6 +44,7 @@ function Send() {
     if (!description) return alert("Please enter a description");
 
     try {
+      setIsLoading(true);
       const res = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_API_URL}/api/send-song`,
         {
@@ -90,9 +95,10 @@ function Send() {
           <button
             type='button'
             onClick={searchSong}
+            disabled={isLoading}
             className='py-4 px-8 border-stone-900 border-[3px] rounded-lg hover:bg-stone-900 hover:text-stone-100'
           >
-            Cari Lagu
+            {isLoading ? "Loading..." : "Cari lagu"}
           </button>
         </div>
         {tracks.length > 0 && (
@@ -127,9 +133,10 @@ function Send() {
         )}
         <button
           type='submit'
-          className='w-full py-4 px-8 bg-stone-900 text-stone-100 rounded-lg'
+          disabled={!postTrack.id || isLoading}
+          className={`${isLoading && "cursor-not-allowed"} w-full py-4 px-8 bg-stone-900 text-stone-100 rounded-lg`}
         >
-          Kirim Ungkapan
+          {!postTrack.id ? "Pilih lagu" : isLoading ? "Loading..." : "Kirim"}
         </button>
       </form>
     </section>
