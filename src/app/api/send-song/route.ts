@@ -2,6 +2,9 @@ import connectMongoDB from "@/lib/mongodb";
 import Letters from "@/models/LetterModel";
 import { NextResponse } from "next/server";
 
+export const maxDuration = 60;
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   const header = new Headers();
   header.set("Access-Control-Allow-Origin", "*");
