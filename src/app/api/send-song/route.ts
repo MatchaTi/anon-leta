@@ -6,8 +6,6 @@ export const maxDuration = 60;
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const header = new Headers();
-  header.set("Access-Control-Allow-Origin", "*");
   await connectMongoDB();
   const letters = await Letters.find();
   return NextResponse.json({ letters });
