@@ -2,13 +2,17 @@ import connectMongoDB from "@/lib/mongodb";
 import Letters from "@/models/LetterModel";
 import { NextResponse } from "next/server";
 
-export const maxDuration = 60;
-export const dynamic = "force-dynamic";
+// export const maxDuration = 60;
 
 export async function GET() {
-  await connectMongoDB();
-  const letters = await Letters.find();
-  return NextResponse.json({ letters });
+  try {
+    await connectMongoDB();
+    const letters = await Letters.find();
+    return NextResponse.json({ letters });
+  } catch (error) {
+    console.log("error cuyyy", error);
+    return NextResponse.json({ message: "error parah cuyyy", error });
+  }
 }
 
 export async function POST(req: Request) {
