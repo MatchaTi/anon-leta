@@ -7,8 +7,6 @@ export const maxDuration = 60;
 export const dynamic = "force-dynamic";
 
 export async function GET(req: NextRequest) {
-  const header = new Headers();
-  header.set("Access-Control-Allow-Origin", "*");
   try {
     const id = req.nextUrl.searchParams.get("id");
     if (!id) {
