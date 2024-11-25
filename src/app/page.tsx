@@ -6,7 +6,9 @@ import axios from "axios";
 
 async function getLetters() {
   try {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/send-song`);
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_BASE_API_URL}/api/send-song`
+    );
     return response.data.letters || [];
   } catch (error) {
     console.error(error);
@@ -21,8 +23,8 @@ export default async function Home() {
   return (
     <div className='overflow-hidden p-6 lg:px-24'>
       <Hero />
-      <h2 className="mb-12 text-4xl font-bold md:text-8xl">Ungkapan</h2>
-      <section className="grid gap-8 place-items-center sm:grid-cols-2 lg:grid-cols-4 lg:mt-40 ">
+      <h2 className='mb-12 text-4xl font-bold md:text-8xl'>Ungkapan</h2>
+      <section className='grid gap-8 place-items-center sm:grid-cols-2 lg:grid-cols-4 lg:mt-40 '>
         {allLetters?.length > 0 ? (
           allLetters.map(({ _id, recipient, description, song }) => (
             <PostCard
@@ -38,7 +40,6 @@ export default async function Home() {
         ) : (
           <p>Tidak ada surat tersedia.</p>
         )}
-
       </section>
     </div>
   );

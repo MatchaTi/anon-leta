@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
   },
   images: {
     domains: ["i.scdn.co"],
-  }
+  },
 };
 
 export default nextConfig;
