@@ -79,7 +79,7 @@ export default async function PostCard({
       <div className='w-full overflow-hidden'>
         <Link
           href={`${idLetter ? "/letter/" + idLetter : "/"}`}
-          className='block mb-4 w-full max-h-[190px] overflow-hidden text-3xl leading-relaxed hyphens-auto md:text-5xl'
+          className='block mb-4 max-w-full max-h-[190px] overflow-hidden text-3xl leading-relaxed hyphens-auto md:text-5xl'
         >
           {description}
         </Link>
@@ -87,7 +87,7 @@ export default async function PostCard({
       </div>
       <Link
         href={`${idLetter ? "/letter/" + idLetter : "/"}`}
-        className='p-4 flex gap-6 items-center bg-stone-100 rounded-lg'
+        className='p-4 max-w-full overflow-hidden flex gap-6 items-center bg-stone-100 rounded-lg'
       >
         <div className='h-16 min-w-16 max-w-16 overflow-hidden rounded-lg bg-stone-50'>
           <img
@@ -96,8 +96,8 @@ export default async function PostCard({
             className='w-full h-full object-cover'
           />
         </div>
-        <div className='overflow-hidden'>
-          <h3 className='font-bold text-ellipsis truncate md:text-2xl'>
+        <div className='overflow-hidden max-w-full'>
+          <h3 className='font-bold text-ellipsis whitespace-nowrap md:text-2xl'>
             {trackDetails.name}
           </h3>
           <p>{trackDetails.artist}</p>
