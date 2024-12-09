@@ -7,7 +7,7 @@ import { NextResponse } from "next/server";
 export async function GET() {
   try {
     await connectMongoDB();
-    const letters = await Letters.find();
+    const letters = await Letters.find().sort({ createdAt: -1 });
     return NextResponse.json({ letters });
   } catch (error) {
     console.log("error cuyyy", error);
