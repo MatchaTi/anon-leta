@@ -20,7 +20,6 @@ async function getLetters() {
 
 export default async function Home() {
   const letters: ILetter[] = await getLetters();
-  // const allLetters = await getAllLetters(letters);
 
   return (
     <div className='overflow-hidden p-6 lg:px-24'>

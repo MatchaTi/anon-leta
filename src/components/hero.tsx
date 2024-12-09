@@ -20,12 +20,51 @@ export default function Hero() {
           Sawer Kami dong :)
         </Link>
       </div>
-      {/* <div className="hidden absolute top-1/2 right-0 -translate-y-1/2 translate-x-20 -rotate-[30deg] lg:block">
-        <PostCard description="Halo kamu yang ada disana" recipient="Raana" image="gambar" titleSong="Algernon" artist="Yorushika" link="" />
+
+      <div className='hidden absolute top-1/2 right-0 -translate-y-1/2 translate-x-20 -rotate-[30deg] lg:block'>
+        <div
+          className={`p-6 h-[410px] flex flex-col justify-between w-full bg-yellow-200 max-w-[350px] shadow-lg`}
+        >
+          <div className='w-full overflow-hidden'>
+            <div className='mb-4 text-3xl w-full line-clamp-4 leading-relaxed md:text-5xl'>
+              Hi! kamu yang disana
+            </div>
+            <p className='mb-4'>Untuk Seseorang</p>
+          </div>
+          <div className='p-4 max-w-full overflow-hidden flex gap-6 items-center bg-stone-100 rounded-lg'>
+            <div className='h-16 min-w-16 max-w-16 overflow-hidden rounded-lg bg-stone-50'></div>
+            <div className='overflow-hidden max-w-full'>
+              <h3 className='font-bold w-full line-clamp-1 md:text-2xl'>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel,
+                ipsum!
+              </h3>
+              <p>Someone</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="hidden absolute translate-y-32 bottom-0 right-96 lg:block">
-        <PostCard description="Halo kamu yang ada disana" recipient="Raana" image="gambar" titleSong="Algernon" artist="Yorushika" link="" />
-      </div> */}
+      <div className='hidden absolute translate-y-32 bottom-0 right-96 lg:block'>
+        <div
+          className={`p-6 h-[410px] flex flex-col justify-between w-full bg-lime-200 max-w-[350px] shadow-lg`}
+        >
+          <div className='w-full overflow-hidden'>
+            <div className='mb-4 text-3xl w-full line-clamp-4 leading-relaxed md:text-5xl'>
+              Hi! kamu yang disana
+            </div>
+            <p className='mb-4'>Untuk Seseorang</p>
+          </div>
+          <div className='p-4 max-w-full overflow-hidden flex gap-6 items-center bg-stone-100 rounded-lg'>
+            <div className='h-16 min-w-16 max-w-16 overflow-hidden rounded-lg bg-stone-50'></div>
+            <div className='overflow-hidden max-w-full'>
+              <h3 className='font-bold w-full line-clamp-1 md:text-2xl'>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel,
+                ipsum!
+              </h3>
+              <p>Someone</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
