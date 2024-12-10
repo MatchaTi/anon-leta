@@ -72,6 +72,7 @@ function Send() {
             onChange={(e) => setRecipient(e.target.value)}
             className='py-4 px-8 rounded-lg bg-stone-100 border-stone-900 border-[3px]'
             placeholder='Teruntuk'
+            required
           />
         </div>
         <div className='mb-6 flex flex-col gap-2'>
@@ -81,6 +82,7 @@ function Send() {
             onChange={(e) => setDescription(e.target.value)}
             className='py-4 px-8 resize-none h-60 rounded-lg bg-stone-100 border-stone-900 border-[3px]'
             placeholder='Isi ungkapanmu disini...'
+            required
           />
         </div>
         <div className='mb-6 flex flex-col gap-2'>
@@ -95,8 +97,10 @@ function Send() {
           <button
             type='button'
             onClick={searchSong}
-            disabled={isLoading}
-            className='py-4 px-8 border-stone-900 border-[3px] rounded-lg hover:bg-stone-900 hover:text-stone-100'
+            disabled={isLoading || !search}
+            className={`${
+              (!search || isLoading) && "cursor-not-allowed"
+            } py-4 px-8 border-stone-900 border-[3px] rounded-lg hover:bg-stone-900 hover:text-stone-100`}
           >
             {isLoading ? "Loading..." : "Cari lagu"}
           </button>
@@ -134,7 +138,9 @@ function Send() {
         <button
           type='submit'
           disabled={!postTrack.id || isLoading}
-          className={`${isLoading && "cursor-not-allowed"} w-full py-4 px-8 bg-stone-900 text-stone-100 rounded-lg`}
+          className={`${
+            (!postTrack.id || isLoading) && "cursor-not-allowed"
+          } w-full py-4 px-8 bg-stone-900 text-stone-100 rounded-lg`}
         >
           {!postTrack.id ? "Pilih lagu" : isLoading ? "Loading..." : "Kirim"}
         </button>
