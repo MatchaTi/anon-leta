@@ -100,7 +100,7 @@ export default async function PostCard({
           <h3 className='font-bold w-full line-clamp-1 md:text-2xl'>
             {trackDetails.name}
           </h3>
-          <p>{trackDetails.artist}</p>
+          <p className='line-clamp-1'>{trackDetails.artist}</p>
         </div>
       </Link>
     </div>
