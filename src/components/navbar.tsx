@@ -15,11 +15,15 @@ export default function Navbar() {
   }
 
   return (
-    <nav className='mx-auto p-6 flex items-center justify-between gap-6 absolute top-0 left-0 right-0 z-10 max-w-[2000px] lg:px-24'>
+    <nav className='mx-auto p-6 flex items-center gap-6 absolute top-0 left-0 right-0 z-10 max-w-[2000px] lg:px-24 lg:grid lg:grid-cols-12 '>
       <Link href='/' className='flex items-center gap-6 text-2xl font-bold'>
         <span>AnonLeta.</span>
       </Link>
-      <form action='' onSubmit={searchRecipient} className='w-full'>
+      <form
+        action=''
+        onSubmit={searchRecipient}
+        className='w-full lg:col-start-4 lg:col-span-6'
+      >
         <input
           type='text'
           className='w-full py-4 px-8 rounded-full bg-stone-100 border-stone-900 border-[3px]'
@@ -27,15 +31,15 @@ export default function Navbar() {
           onChange={(e) => setSearch(e.target.value)}
         />
       </form>
-      <div className='w-full hidden items-center gap-4 justify-end lg:flex'>
+      <div className='hidden w-full col-span-3 items-center gap-12 justify-end lg:flex'>
         <Link
           href='/send'
           className='flex items-center gap-6 text-2xl font-bold'
         >
-          <span>Ungkapkan Rasa</span>
+          Ungkapkan Rasa
         </Link>
         <Link href='/' className='flex items-center gap-6 text-2xl font-bold'>
-          <span>Sawer Kami</span>
+          Sawer Kami
         </Link>
       </div>
     </nav>
