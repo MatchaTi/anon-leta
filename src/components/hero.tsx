@@ -9,13 +9,13 @@ export default function Hero() {
       <div className='flex items-center gap-6'>
         <Link
           href='/send'
-          className='py-4 px-8 bg-stone-900 text-stone-100 rounded-xl'
+          className='py-4 px-8 bg-stone-900 text-stone-100 rounded-xl hover:bg-stone-700 active:bg-stone-500'
         >
           Ungkapkan Rasa
         </Link>
         <Link
           href='/send'
-          className='py-4 px-8 bg-stone-100 border-stone-900 border-[3px] rounded-xl'
+          className='py-4 px-8 bg-stone-100 border-stone-900 border-[3px] rounded-xl hover:bg-stone-900 hover:text-stone-100'
         >
           Sawer Kami dong :)
         </Link>
